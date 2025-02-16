@@ -75,7 +75,6 @@ const navigateToEdit = () => {
 
 <template>
   <div class="card">
-    isSupported - {{ isSupported }}
     <div
       v-if="credential"
       class="flex flex-column gap-4">
