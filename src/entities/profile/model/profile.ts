@@ -92,7 +92,10 @@ export const useProfileStore = (): ProfileStore => {
   const decryptCredentials = (
     data: EncryptedServiceCredentials,
     encryptionKey: string
-  ): ServiceCredentials => JSON.parse(decrypt(data.encryptedData, encryptionKey))
+  ): ServiceCredentials => {
+    const decryptedData = decrypt(data.encryptedData, encryptionKey)
+    return JSON.parse(decryptedData)
+  }
 
   const addCredentials = (
     masterPassword: string,

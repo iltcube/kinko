@@ -12,8 +12,6 @@ import { useUniversalClipboard } from './clipboard'
 
 const { copyToClipboard, resetAfterDelay, isCopied } = useUniversalClipboard()
 
-const { isSupported } = useClipboard()
-
 const copy = async (text: string) => {
   if (text) {
     await copyToClipboard(text)
@@ -36,7 +34,6 @@ const loadCredential = async () => {
   try {
     loading.value = true
     credential.value = getCredentials(currentPassword.value, id)
-    console.log(credential.value)
   } catch (error) {
     console.error('Failed to load credential:', error)
     router.push({ name: 'credentialList' })

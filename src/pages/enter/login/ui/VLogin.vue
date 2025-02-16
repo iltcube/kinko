@@ -76,7 +76,7 @@ const handleLogin = async () => {
     errorMessage.value = null
     const hashPassword = getHash(password.value, profile.value.salt, 'strong')
     if (hashPassword !== profile.value.hashedPassword) return
-    currentPassword.value = hashPassword
+    currentPassword.value = password.value
     // await login(loginForm.value.login, loginForm.value.password)
     router.push({ name: 'credentialList' }) // Перенаправляем на страницу с паролями
   } catch (error) {
